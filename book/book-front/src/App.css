@@ -52,3 +52,13 @@ button {
   margin: 5px
 }
 
+.table-list{
+  width: 100%;
+  border: 1px solid #ddd;
+  border-collapse: collapse;
+}
+.table-list th, td{
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+

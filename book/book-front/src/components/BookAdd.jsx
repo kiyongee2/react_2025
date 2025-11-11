@@ -3,19 +3,20 @@ import api from "../api/api.js";
 import { useNavigate } from "react-router-dom";
 
 const BookAdd = () => {
-  const [title, setTitle] = useState("");
-  const [author, setAuthor] = useState("");
-  const navigate = useNavigate();
+  const [title, setTitle] = useState(""); // 도서명 상태
+  const [author, setAuthor] = useState(""); // 저자명 상태
+  const navigate = useNavigate();  // 페이지 이동 훅
 
+  // 도서 등록 처리
   const handleSubmit = async () => {
     if (!title.trim() || !author.trim()) {
       alert("모든 항목을 입력해주세요.");
       return;
     }
     try {
-      await api.post("/books", { title, author });
+      await api.post("/books", { title, author }); // 도서 등록 API 호출
       alert("도서 등록 완료!");
-      navigate("/");
+      navigate("/"); // 등록 후 도서 목록 페이지로 이동
     } catch (error) {
       console.error("등록 실패:", error);
     }
